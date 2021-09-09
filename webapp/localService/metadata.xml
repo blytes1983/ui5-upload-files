@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_PRICES_CTR_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Prices_ctr" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PriceId"/>
+                </Key>
+                <Property Name="PriceId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ID Control Precios" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StoreId" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sucursal"/>
+                <Property Name="IdealId" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="ID de APP"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Material"/>
+                <Property Name="DescMaterial" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Descripción Producto"/>
+                <Property Name="Quantity" Type="Edm.String" MaxLength="21" sap:unicode="false" sap:label="Cantidad"/>
+                <Property Name="UM" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Unidad de Medida"/>
+                <Property Name="QuantityUM" Type="Edm.String" MaxLength="25" sap:unicode="false" sap:label="Cantidad mas unidad de Medida"/>
+                <Property Name="Bulto" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Bultos"/>
+                <Property Name="DateFrom" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Inicio de venta"/>
+                <Property Name="DateTo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fin de venta"/>
+                <Property Name="Sector" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Sector"/>
+                <Property Name="EAN" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:label="Codigo EAN"/>
+                <Property Name="IVAprice" Type="Edm.String" MaxLength="21" sap:unicode="false" sap:label="Precio con IVA"/>
+                <Property Name="PromoFolder" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Promo Folder"/>
+                <Property Name="Exhibicion" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Exhibicion"/>
+                <Property Name="Validity" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Vigencia"/>
+                <Property Name="Perform" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Realizar tarea"/>
+                <Property Name="StatusMe" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Me estatus"/>
+                <Property Name="mayName" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="MI nombre"/>
+                <Property Name="CheckJS" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Check de JS"/>
+                <Property Name="StatusJS" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Estatus 1"/>
+                <Property Name="NameJS" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Nombre1"/>
+                <Property Name="CheckGF" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Check GF"/>
+                <Property Name="StatusGF" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Estatus2"/>
+                <Property Name="NameGF" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Nombre2"/>
+                <Property Name="CheckGS" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Check GS"/>
+                <Property Name="StatusGS" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Estarus3"/>
+                <Property Name="NameGS" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Nombre3"/>
+                <Property Name="CheckGR" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Check GR"/>
+                <Property Name="StatusGR" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Estatus4"/>
+                <Property Name="NameGR" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Nombre4"/>
+                <Property Name="Status5" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Estatus5"/>
+                <Property Name="Name5" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Nombre1"/>
+            </EntityType>
+            <EntityType Name="Detail" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PriceId"/>
+                </Key>
+                <Property Name="PriceId" Type="Edm.String" Nullable="false" MaxLength="36" sap:unicode="false" sap:label="ID Control Precios" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActivityDate" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Fecha de actividad"/>
+                <Property Name="ProfileId" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Perfil ID"/>
+                <Property Name="CheckId" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Check ID"/>
+                <Property Name="Commentary" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Comentario"/>
+                <Property Name="Commentary2" Type="Edm.String" MaxLength="220" sap:unicode="false" sap:label="Aclaracion"/>
+                <Property Name="DefaultComment" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Comentario predefinido"/>
+                <Property Name="PhotoId" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="ID de Foto"/>
+                <Property Name="DateCheck" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Fecha de check"/>
+                <Property Name="StatusTask" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Estatus de Tarea"/>
+                <Property Name="Controllers" Type="Edm.String" MaxLength="150" sap:unicode="false" sap:label="Controladores"/>
+                <Property Name="PautaSelect" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag de Seleccion pa"/>
+                <Property Name="PautaDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Fecha de creación de"/>
+                <Property Name="Archieve" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Cumplimiento Real en"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_PRICES_CTR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Prices_ctrSet" EntityType="ZGW_PRICES_CTR_SRV.Prices_ctr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DetailSet" EntityType="ZGW_PRICES_CTR_SRV.Detail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://chbw4apdev.vital.com.ar:8000/sap/opu/odata/sap/ZGW_PRICES_CTR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://chbw4apdev.vital.com.ar:8000/sap/opu/odata/sap/ZGW_PRICES_CTR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

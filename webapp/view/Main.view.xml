@@ -1,0 +1,140 @@
+<mvc:View
+    controllerName="vital.prices.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<l:VerticalLayout>
+							<u:FileUploader
+							id="idUploader2" 
+							visible="true" name="myFileUpload" 
+							icon="sap-icon://add" 
+							useMultipart="false" 
+							buttonOnly="false"
+							uploadUrl="/sap/opu/odata/sap/ZGW_PHOTOS_SRV/FileSet" 
+							sendXHR="true" 
+							change="onFileChange" 
+							uploadComplete="handleUploadComplete"
+							buttonText="Subir" class="sapUiSmallMarginBottom" 
+							maximumFileSize="10" 
+							fileSizeExceed="handleFileSizeExceed"/>
+						<Input id="PhotoId" placeholder="Completar con PhotoId"></Input>
+						<Input id="PhotoNameId" placeholder="Completar con PhotoNameId"></Input>
+						<Button text="Ver Foto" press="onGetPic"></Button>	
+						<Image 
+							id="PIC"
+							ariaDetails="detailsActiveImage"
+							width="auto"
+							decorative="false"
+							ariaHasPopup="Menu"/>
+						</l:VerticalLayout>
+					
+
+						<Table id="idProductsTable"
+						inset="false"
+						items="{
+							path: '/Prices_ctrSet',
+							sorter: {
+								path: 'DescMaterial'
+							}
+						}">
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<Title text="Products" level="H2"/>
+									<ToolbarSpacer />
+									<ComboBox id="idPopinLayout"
+										placeholder="Popin layout options"
+										change="onPopinLayoutChanged">
+										<items>
+											<core:Item  text="Block"
+												key="Block"/>
+											<core:Item  text="Grid Large"
+												key="GridLarge"/>
+											<core:Item  text="Grid Small"
+												key="GridSmall"/>
+										</items>
+									</ComboBox>
+									<Label text="Sticky options:" />
+									<CheckBox text="ColumnHeaders"
+										select="onSelect"/>
+									<CheckBox text="HeaderToolbar"
+										select="onSelect"/>
+									<CheckBox text="InfoToolbar"
+										select="onSelect"/>
+									<ToggleButton id="toggleInfoToolbar"
+										text="Hide/Show InfoToolbar"
+										press="onToggleInfoToolbar" />
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<infoToolbar>
+							<OverflowToolbar>
+								<Label text="Wide range of available products"/>
+							</OverflowToolbar>
+						</infoToolbar>
+						<columns>
+							<Column
+								width="12em">
+								<Text text="Product" />
+							</Column>
+							<Column
+								minScreenWidth="Tablet"
+								demandPopin="true">
+								<Text text="Supplier" />
+							</Column>
+							<Column
+								minScreenWidth="Desktop"
+								demandPopin="true"
+								hAlign="End">
+								<Text text="Dimensions" />
+							</Column>
+							<Column
+								minScreenWidth="Desktop"
+								demandPopin="true"
+								hAlign="Center">
+								<Text text="Weight" />
+							</Column>
+							<Column
+								hAlign="End">
+								<Text text="Price" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onPress"> 
+								<cells>
+									<ObjectIdentifier
+										title="{PriceId}"
+										text="{DescMaterial}"/>
+									<Text
+										text="{DescMaterial}" />
+									<Text
+										text="{Validity}" />
+									<Text
+										text="{Exhibicion}" />
+									<ObjectNumber
+											number="{
+												parts:[{path:'IVAprice'},'ARS'],
+												type: 'sap.ui.model.type.Currency',
+												formatOptions: {showMeasure: false}
+											}"
+											unit="ARS" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
